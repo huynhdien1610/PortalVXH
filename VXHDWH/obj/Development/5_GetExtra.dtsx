@@ -1,0 +1,2231 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2023 10:56:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-2CHGG8TGHV0"
+  DTS:CreatorName="WIN-2CHGG8TGHV0\Administrator"
+  DTS:DTSID="{2B3C246D-5D04-4C9B-B6DB-89E9636722CF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="GetExtra"
+  DTS:PackageType="5"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{00DD4EA9-8E58-4274-8554-D2377D0C3318}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\GetExtra"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7016BF95-DFFC-4FD6-AF56-04F8C4E3B513}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetExtra"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\GetExtra\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_BJExtra]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\GetExtra\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{2FA8D971-B9C5-4A64-BBC7-902698C1A55B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[127.0.0.1.DWH.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[BRPOSNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BRPOSNo"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSNo]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSNo]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="BRPOSItemID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemID]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[FK_BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="FK_BRPOSItemID"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_BRPOSItemID]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[BRPOSItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSItemType"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemType]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[ExtraName]"
+                      cachedDataType="nText"
+                      cachedName="ExtraName"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtraName]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[BRPOSItemQty]"
+                      cachedDataType="r8"
+                      cachedName="BRPOSItemQty"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemQty]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[ICProductOF01Combo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ICProductOF01Combo"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICProductOF01Combo]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[BRPOSStoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSStoreName"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSStoreName]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[AACreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AACreatedDate"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AACreatedDate]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[AuditUpdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AuditUpdate"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditUpdate]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].Columns[PK_DateKey]"
+                      cachedDataType="i4"
+                      cachedName="PK_DateKey"
+                      externalMetadataColumnId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PK_DateKey]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BRPOSNo" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemID]"
+                      dataType="i4"
+                      name="BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      name="FK_BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemType]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSItemType" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtraName]"
+                      dataType="nText"
+                      name="ExtraName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSItemQty]"
+                      dataType="r8"
+                      name="BRPOSItemQty" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      dataType="nText"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ICProductOF01Combo" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BRPOSStoreName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSStoreName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="AACreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      name="AuditUpdate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PK_DateKey]"
+                      dataType="i4"
+                      name="PK_DateKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\GetExtra\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\GetExtra\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Fact_BJExtra] SET [AACreatedDate] = ?,[AuditUpdate] = ?,[BRPOSItemQty] = ?,[BRPOSItemType] = ?,[BRPOSNo] = ?,[BRPOSStoreName] = ?,[ExtraName] = ?,[FK_BRPOSItemID] = ?,[ICProductOF01Combo] = ?,[PK_DateKey] = ?,[Product] = ? WHERE [BRPOSItemID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\GetExtra\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{2FA8D971-B9C5-4A64-BBC7-902698C1A55B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[127.0.0.1.DWH.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[AACreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AACreatedDate"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[AuditUpdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AuditUpdate"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="BRPOSItemID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[BRPOSItemQty]"
+                      cachedDataType="r8"
+                      cachedName="BRPOSItemQty"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[BRPOSItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSItemType"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[BRPOSNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BRPOSNo"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSNo]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[BRPOSStoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSStoreName"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[ExtraName]"
+                      cachedDataType="nText"
+                      cachedName="ExtraName"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[FK_BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="FK_BRPOSItemID"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[ICProductOF01Combo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ICProductOF01Combo"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[PK_DateKey]"
+                      cachedDataType="i4"
+                      cachedName="PK_DateKey"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="r8"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="nText"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="nText"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="i4"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\GetExtra\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Fact_BJExtra] SET [AACreatedDate] = ?,[AuditUpdate] = ?,[BRPOSItemQty] = ?,[BRPOSItemType] = ?,[BRPOSStoreName] = ?,[ExtraName] = ?,[FK_BRPOSItemID] = ?,[ICProductOF01Combo] = ?,[PK_DateKey] = ?,[Product] = ? WHERE [BRPOSItemID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\GetExtra\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{2FA8D971-B9C5-4A64-BBC7-902698C1A55B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[127.0.0.1.DWH.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AACreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AACreatedDate"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AuditUpdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AuditUpdate"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="BRPOSItemID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BRPOSItemQty]"
+                      cachedDataType="r8"
+                      cachedName="BRPOSItemQty"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BRPOSItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSItemType"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BRPOSStoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSStoreName"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ExtraName]"
+                      cachedDataType="nText"
+                      cachedName="ExtraName"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FK_BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="FK_BRPOSItemID"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ICProductOF01Combo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ICProductOF01Combo"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PK_DateKey]"
+                      cachedDataType="i4"
+                      cachedName="PK_DateKey"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]" />
+                    <inputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="r8"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="nText"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="i4"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="nText"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\GetExtra\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select 
+	T2.BRPOSNo
+	,T1.BRPOSItemID, T1.FK_BRPOSItemID,T1.BRPOSItemType,T1.BRPOSItemDesc as ExtraName,T1.BRPOSItemQty 
+	,T3.BRPOSItemDesc as Product
+	,T3.ICProductOF01Combo
+	,T6.BRPOSStoreName
+        ,T2.AACreatedDate
+	,AuditUpdate=Getdate()
+	,YEAR(T2.AACreatedDate) * 10000 + MONTH(T2.AACreatedDate) * 100 + DAY(T2.AACreatedDate) as PK_DateKey
+	from BRPOSItems as T1
+	LEFT JOIN
+	(select T5.BRPOSItemID,T5.BRPOSItemDesc,T4.ICProductOF01Combo from BRPOSItems AS T5 
+	LEFT JOIN dbo.ICProducts AS T4 ON T5.FK_ICProductID=T4.ICProductID AND T4.AAStatus = T5.AAStatus) 
+	AS T3 ON T1.FK_BRPOSItemID =T3.BRPOSItemID
+	LEFT JOIN BRPOSs as T2 	ON (T1.FK_BRPOSID = T2.BRPOSID AND T1.AAStatus = T2.AAStatus) 
+	LEFT JOIN dbo.BRPOSStores  AS T6
+	ON (T2.FK_BRPOSStoreID =T6.BRPOSStoreID AND T6.AAStatus = T2.AAStatus)
+	WHERE t2.BRPOSStatusCombo ='Complete' AND T1.BRPOSItemType ='EXTRA'	and T2.BRPOSDutyMealPmtAmt =0 and T2.BRPOSSamplePmtAmt=0 and T1.AACreatedDate &gt;=(GETDATE()-10) order by T2.AACreatedDate</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\GetExtra\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{419FED49-C091-46B9-91F7-50FE237B3FA9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[192.168.100.192,9999.ERP.dien.huynh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSNo]"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSNo]"
+                      name="BRPOSNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemID]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemID]"
+                      name="BRPOSItemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_BRPOSItemID]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_BRPOSItemID]"
+                      name="FK_BRPOSItemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemType]"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemType]"
+                      name="BRPOSItemType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtraName]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtraName]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtraName]"
+                      name="ExtraName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemQty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemQty]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemQty]"
+                      name="BRPOSItemQty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]"
+                      name="Product"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ICProductOF01Combo]"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICProductOF01Combo]"
+                      name="ICProductOF01Combo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSStoreName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSStoreName]"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSStoreName]"
+                      name="BRPOSStoreName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AACreatedDate]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AACreatedDate]"
+                      name="AACreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditUpdate]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditUpdate]"
+                      name="AuditUpdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[PK_DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PK_DateKey]"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[PK_DateKey]"
+                      name="PK_DateKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BRPOSNo" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemID]"
+                      dataType="i4"
+                      name="BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      name="FK_BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemType]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSItemType" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtraName]"
+                      dataType="nText"
+                      name="ExtraName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSItemQty]"
+                      dataType="r8"
+                      name="BRPOSItemQty" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                      dataType="nText"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ICProductOF01Combo" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BRPOSStoreName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSStoreName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="AACreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      name="AuditUpdate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PK_DateKey]"
+                      dataType="i4"
+                      name="PK_DateKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSNo]"
+                      name="BRPOSNo" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemID]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemID]"
+                      name="BRPOSItemID" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_BRPOSItemID]"
+                      name="FK_BRPOSItemID" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemType]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemType]"
+                      name="BRPOSItemType" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtraName]"
+                      dataType="nText"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtraName]"
+                      name="ExtraName" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemQty]"
+                      dataType="r8"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSItemQty]"
+                      name="BRPOSItemQty" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product]"
+                      dataType="nText"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product]"
+                      name="Product" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ICProductOF01Combo]"
+                      name="ICProductOF01Combo" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSStoreName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BRPOSStoreName]"
+                      name="BRPOSStoreName" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AACreatedDate]"
+                      name="AACreatedDate" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditUpdate]"
+                      name="AuditUpdate" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PK_DateKey]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PK_DateKey]"
+                      name="PK_DateKey" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\GetExtra\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [AACreatedDate], [AuditUpdate], [BRPOSItemID], [BRPOSItemQty], [BRPOSItemType], [BRPOSStoreName], [ExtraName], [FK_BRPOSItemID], [ICProductOF01Combo], [PK_DateKey], [Product] FROM [dbo].[Fact_BJExtra]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\GetExtra\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{2FA8D971-B9C5-4A64-BBC7-902698C1A55B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[127.0.0.1.DWH.sa]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[AACreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AACreatedDate"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AACreatedDate]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[AuditUpdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AuditUpdate"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AuditUpdate]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="BRPOSItemID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemID]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BRPOSItemQty]"
+                      cachedDataType="r8"
+                      cachedName="BRPOSItemQty"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemQty]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BRPOSItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSItemType"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemType]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BRPOSStoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSStoreName"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSStoreName]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ExtraName]"
+                      cachedDataType="nText"
+                      cachedName="ExtraName"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ExtraName]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FK_BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="FK_BRPOSItemID"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FK_BRPOSItemID]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ICProductOF01Combo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ICProductOF01Combo"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ICProductOF01Combo]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PK_DateKey]"
+                      cachedDataType="i4"
+                      cachedName="PK_DateKey"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PK_DateKey]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Product]"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="AACreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      name="AuditUpdate" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemID]"
+                      dataType="i4"
+                      name="BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemQty]"
+                      dataType="r8"
+                      name="BRPOSItemQty" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSItemType]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSItemType" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[BRPOSStoreName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BRPOSStoreName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ExtraName]"
+                      dataType="nText"
+                      name="ExtraName" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      name="FK_BRPOSItemID" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ICProductOF01Combo" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PK_DateKey]"
+                      dataType="i4"
+                      name="PK_DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Product]"
+                      dataType="nText"
+                      name="Product" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\GetExtra\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\GetExtra\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\GetExtra\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[BRPOSNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BRPOSNo"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSNo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="BRPOSItemID"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[FK_BRPOSItemID]"
+                      cachedDataType="i4"
+                      cachedName="FK_BRPOSItemID"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_BRPOSItemID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[BRPOSItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSItemType"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemType]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[ExtraName]"
+                      cachedDataType="nText"
+                      cachedName="ExtraName"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtraName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[BRPOSItemQty]"
+                      cachedDataType="r8"
+                      cachedName="BRPOSItemQty"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemQty]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[ICProductOF01Combo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ICProductOF01Combo"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICProductOF01Combo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[BRPOSStoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BRPOSStoreName"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSStoreName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[AACreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AACreatedDate"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AACreatedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[AuditUpdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AuditUpdate"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditUpdate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GetExtra\Sort.Inputs[Sort Input].Columns[PK_DateKey]"
+                      cachedDataType="i4"
+                      cachedName="PK_DateKey"
+                      lineageId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[PK_DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\GetExtra\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSNo]"
+                      name="BRPOSNo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSNo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemID]"
+                      name="BRPOSItemID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]"
+                      name="FK_BRPOSItemID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_BRPOSItemID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemType]"
+                      name="BRPOSItemType">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemType]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]"
+                      dataType="nText"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ExtraName]"
+                      name="ExtraName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtraName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]"
+                      dataType="r8"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSItemQty]"
+                      name="BRPOSItemQty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSItemQty]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]"
+                      dataType="nText"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[Product]"
+                      name="Product">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]"
+                      name="ICProductOF01Combo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[ICProductOF01Combo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[BRPOSStoreName]"
+                      name="BRPOSStoreName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[BRPOSStoreName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AACreatedDate]"
+                      name="AACreatedDate"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AACreatedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[AuditUpdate]"
+                      name="AuditUpdate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditUpdate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]"
+                      dataType="i4"
+                      lineageId="Package\GetExtra\Sort.Outputs[Sort Output].Columns[PK_DateKey]"
+                      name="PK_DateKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output].Columns[PK_DateKey]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\GetExtra.Paths[Changing Attribute Updates Output]"
+              endId="Package\GetExtra\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\GetExtra\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\GetExtra.Paths[Inferred Member Updates Output]"
+              endId="Package\GetExtra\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\GetExtra\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\GetExtra.Paths[New Output]"
+              endId="Package\GetExtra\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\GetExtra\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\GetExtra.Paths[OLE DB Source Output]"
+              endId="Package\GetExtra\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\GetExtra\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\GetExtra.Paths[Sort Output]"
+              endId="Package\GetExtra\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Sort Output"
+              startId="Package\GetExtra\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\GetExtra"
+          TopLeft="215.624990360811,59.5263151358865" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\GetExtra">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\GetExtra\Slowly Changing Dimension"
+          TopLeft="207.833333333333,210.833333333333" />
+        <NodeLayout
+          Size="93.3333333333334,42.6666666666667"
+          Id="Package\GetExtra\Sort"
+          TopLeft="267.166666666667,108.166666666667" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\GetExtra\OLE DB Source"
+          TopLeft="236.5,5.49999999999993" />
+        <EdgeLayout
+          Id="Package\GetExtra.Paths[Sort Output]"
+          TopLeft="313.833333333333,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetExtra.Paths[OLE DB Source Output]"
+          TopLeft="313.833333333333,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\GetExtra\Insert Destination"
+          TopLeft="5.5000000000001,313.5" />
+        <EdgeLayout
+          Id="Package\GetExtra.Paths[New Output]"
+          TopLeft="262.833333333333,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-176,60.0000000000001"
+              Start="0,0"
+              End="-176,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4968944099379"
+                    Point2="0,20.4968944099379"
+                    Point3="-4,20.4968944099379" />
+                  <mssgle:LineSegment
+                    End="-172,20.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-172,20.4968944099379"
+                    Point2="-176,20.4968944099379"
+                    Point3="-176,24.4968944099379" />
+                  <mssgle:LineSegment
+                    End="-176,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-115.09138671875,25.4968944099379,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\GetExtra\OLE DB Command"
+          TopLeft="228.5,313.5" />
+        <EdgeLayout
+          Id="Package\GetExtra.Paths[Inferred Member Updates Output]"
+          TopLeft="313.833333333333,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984375001,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\GetExtra\OLE DB Command 1"
+          TopLeft="459.833333333333,313.5" />
+        <EdgeLayout
+          Id="Package\GetExtra.Paths[Changing Attribute Updates Output]"
+          TopLeft="364.833333333333,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185,60.0000000000001"
+              Start="0,0"
+              End="185,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4968944099379"
+                    Point2="0,20.4968944099379"
+                    Point3="4,20.4968944099379" />
+                  <mssgle:LineSegment
+                    End="181,20.4968944099379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181,20.4968944099379"
+                    Point2="185,20.4968944099379"
+                    Point3="185,24.4968944099379" />
+                  <mssgle:LineSegment
+                    End="185,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.96609375,25.4968944099379,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetExtra\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{2FA8D971-B9C5-4A64-BBC7-902698C1A55B}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Fact_BJExtra]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[AACreatedDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;AACreatedDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[AuditUpdate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;AuditUpdate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[BRPOSItemID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BRPOSItemID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[BRPOSItemQty]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BRPOSItemQty&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[BRPOSItemType]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BRPOSItemType&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[BRPOSNo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BRPOSNo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[BRPOSStoreName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BRPOSStoreName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[ExtraName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ExtraName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[FK_BRPOSItemID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FK_BRPOSItemID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[ICProductOF01Combo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ICProductOF01Combo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[PK_DateKey]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PK_DateKey&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Sort.Outputs[Sort Output].Columns[Product]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Product&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetExtra\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
